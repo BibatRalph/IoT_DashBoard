@@ -1,0 +1,188 @@
+  <!-- Start content -->
+  <div class="content">
+    <div class="container-fluid">
+
+            <div class="row align-items-center">
+                <div class="col-sm-6">
+                    <h4 class="page-title">Dashboard</h4>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-right">
+                        <li class="breadcrumb-item"><a href="#">Group_8</a></li>
+                        <li class="breadcrumb-item active">Dashboard</li>
+                    </ol>
+                </div>
+            </div>
+            <!-- end row -->
+     
+
+        <!-- end page-title -->
+<div class="row">
+  <div class="col-sm-6 col-xl-3">
+    <div class="card">
+        <div class="card-heading p-4">
+            <div class="mini-stat-icon float-right">
+                <i class="fas fa-thermometer-half bg-primary  text-white"></i>
+                
+            </div>
+            <div>
+              <h3 class="text-muted mt-2 mb-0">DHT11 Temperature and Humidity Sensors</h3>
+          </div>
+           
+            <div class="progress mt-4" style="height: 4px;">
+              <div class="progress-bar bg-primary" role="progressbar" style="width: auto" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+          
+           
+          
+            <p class="text-muted mt-2 mb-0" *ngIf="currentSensorReadings | async as sensors">
+              <mat-list-item>Humidity: {{ sensors.humidity }}</mat-list-item>
+              <mat-list-item>Temperature: {{ sensors.temperature }}</mat-list-item>
+          </p>
+        </div>
+    </div>
+    
+</div>
+<div class="col-sm-6 col-xl-3">
+  <div class="card">
+      <div class="card-heading p-4">
+          <div class="mini-stat-icon float-right">
+              <i class="mdi mdi-cube-outline bg-primary  text-white"></i>
+             
+          </div>
+          <div>
+            <h3 class="text-muted mt-2 mb-0">Vibration Sensor Module SW 420</h3>
+        </div>
+        
+          <div class="progress mt-4" style="height: 4px;">
+            <div class="progress-bar bg-primary" role="progressbar" style="width: auto" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        
+         
+        
+          <p class="text-muted mt-2 mb-0" *ngIf="currentVibSensorReadings | async as sensors">
+            <mat-list-item>Vibration: {{ sensors.vibration }}</mat-list-item>
+          
+        </p>
+      </div>
+  </div>
+  
+</div>
+<div class="col-sm-6 col-xl-3">
+  <div class="card">
+      <div class="card-heading p-4">
+          <div class="mini-stat-icon float-right">
+              <i class="fas fa-volume-up bg-primary  text-white"></i>
+             
+          </div>
+          <div>
+            <h3 class="text-muted mt-2 mb-0">Sound Sensor Module LM386</h3>
+        </div>
+         
+          <div class="progress mt-4" style="height: 4px;">
+            <div class="progress-bar bg-primary" role="progressbar" style="width: auto" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        
+         
+        
+          <p class="text-muted mt-2 mb-0" *ngIf="currentSensorReadings | async as sensors">
+            <mat-list-item>Sound: {{ sensors.Sound }}</mat-list-item>
+          
+        </p>
+      </div>
+  </div>
+  
+</div>
+<div class="col-sm-6 col-xl-3">
+  <div class="card">
+      <div class="card-heading p-4">
+          <div class="mini-stat-icon float-right">
+              <i class="fas fa-thermometer bg-primary  text-white"></i>
+             
+          </div>
+          <div>
+            <h3 class="text-muted mt-2 mb-0"> Temperature Sensor LM35 </h3>
+        </div>
+         
+          <div class="progress mt-4" style="height: 4px;">
+            <div class="progress-bar bg-primary" role="progressbar" style="width: auto" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        
+         
+        
+          <p class="text-muted mt-2 mb-0" *ngIf="currentSensorReadings | async as sensors">
+            <mat-list-item>Temperature: {{ sensors.Temperature }}</mat-list-item>
+       
+        </p>
+      </div>
+  </div>
+  
+</div>
+</div>
+<!--CHARTSSSS -->
+<div class="row">
+  <div class="col-xl-8">
+      <div class="card m-b-30">
+          <div class="card-body">
+              <h4 class="text-muted mt-2 mb-0">Temperature and Humidity Chart</h4>
+              <canvas id="chartHumidity"></canvas>
+          </div>
+      </div>
+   
+  </div>
+  <!-- end col -->
+  <div class="col-xl-4">
+      <div class="card m-b-30">
+          <div class="card-body">
+              <h4 class="text-muted mt-2 mb-0">Machine Status</h4>
+              <div id="Chart" class="morris-charts morris-chart-height"></div>
+          </div>
+      </div>
+  </div>
+  <!-- end col -->
+</div>
+
+
+<div class="row">
+  <div class="col-xl-4">
+  <div class="card m-b-30">
+  <div class="card-body">
+      <h4 class="text-muted mt-2 mb-0">Vibration Chart</h4>
+      <canvas id="chartVib" class="morris-charts morris-chart-height"></canvas>
+  </div>
+</div>
+</div>
+
+<div class="col-xl-4">
+  <div class="card m-b-30">
+    <div class="card-body">
+        <h4 class="text-muted mt-2 mb-0">Sound Chart</h4>
+        <canvas id="chartSound" class="morris-charts morris-chart-height"></canvas>
+    </div>
+    </div>
+  </div>
+
+  <div class="col-xl-4">
+    <div class="card m-b-30">
+      <div class="card-body">
+          <h4 class="text-muted mt-2 mb-0">Internal Temperature Chart</h4>
+          <canvas id="chartITemp" class="morris-charts morris-chart-height"></canvas>
+      </div>
+      </div>
+</div>
+</div>
+
+
+
+<!--CHARTSSSS END -->
+<script>
+  function resize(){    
+    $("#canvas").outerHeight($(window).height()-$("#canvas").offset().top- Math.abs($("#canvas").outerHeight(true) - $("#canvas").outerHeight()));
+  }
+  $(document).ready(function(){
+    resize();
+    $(window).on("resize", function(){                      
+        resize();
+    });
+  });
+  </script>
